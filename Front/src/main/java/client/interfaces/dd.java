@@ -24,7 +24,7 @@ public class dd extends Application {
 		Parent root=FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(root);
         
-        primaryStage.setTitle("Ajouter un Article");
+        primaryStage.setTitle("Welcome to CRM App!");
         primaryStage.setScene(scene);
         primaryStage.show();
         System.out.println("test");
@@ -33,8 +33,9 @@ public class dd extends Application {
 		context = new InitialContext();
 		adminServiceRemote proxy;
 		proxy = (adminServiceRemote) context.lookup(jndiName);
-		Admin  p =new Admin("Admin1","123456","Admin","Admin",12345678);
-		 proxy.addUser(p);
+		Admin  p =new Admin("Admin1","123456","Admin","Admin",98562421);
+		proxy.addUser(p);
+		
 		
 	}
 

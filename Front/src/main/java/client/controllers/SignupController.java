@@ -7,6 +7,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import client.interfaces.SendingMail;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,14 +45,14 @@ public void initialize(URL url, ResourceBundle rb)  {
 	        String mail=sign_mail.getText();
 	        if ((loggin.length()==0)||(pass.length()==0)||(add.length()==0)||(mail.length()==0)){
 	                Alert a=new Alert(Alert.AlertType.ERROR);
-	                a.setContentText("Un/Ou plusiers champs sont vides!");
+	                a.setContentText("One/Many fields are empty!");
 	                a.show();
 	        }
           
 	        else if((loggin.length()!=8))
 	        {
 	        	 Alert a=new Alert(Alert.AlertType.ERROR);
-	                a.setContentText("Verifer votre numero !");
+	                a.setContentText("Verify your number !");
 	                a.show();
 	        }
         // TODO
@@ -60,19 +61,41 @@ public void initialize(URL url, ResourceBundle rb)  {
 	        else {
 	   
 			System.out.println("cnt");
+			String jndiName1="CRmapp-ear/CRmapp-ejb/userService!tn.esprit.CRmapp.services.userServiceRemote";
+			Context context1;
 			try {
-					String jndiName="CRmapp-ear/CRmapp-ejb/userService!tn.esprit.CRmapp.services.userServiceRemote";
-					Context context;
-					context = new InitialContext();
-					userServiceRemote proxy;
-					proxy = (userServiceRemote) context.lookup(jndiName);
-					Client  p =new Client(sign_mail.getText(),pass_sing.getText(),sign_adress.getText(),sign_number.getText());
-					 proxy.addUser(p);
-					 
-				} catch (NamingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				context1 = new InitialContext();
+				userServiceRemote proxy1;
+				proxy1 = (userServiceRemote) context1.lookup(jndiName1);
+				boolean a=proxy1.authentifier(sign_mail.getText(), pass_sing.getText());
+				if(a==true){
+					 Alert h=new Alert(Alert.AlertType.ERROR);
+		                h.setContentText("Le compte existe deja!");
+		                h.show();
 				}
+				if(a==false){
+					
+					try {
+							String jndiName="CRmapp-ear/CRmapp-ejb/userService!tn.esprit.CRmapp.services.userServiceRemote";
+							Context context;
+							context = new InitialContext();
+							userServiceRemote proxy;
+							proxy = (userServiceRemote) context.lookup(jndiName);
+							Client  p =new Client(sign_mail.getText(),pass_sing.getText(),sign_adress.getText(),sign_number.getText());
+							 proxy.addUser(p);
+							 SendingMail sm=new SendingMail("Your CRM account has been successfully created!", sign_mail.getText(), "CRM Account");
+								sm.envoyer();
+							 
+						} catch (NamingException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				
+			} catch (NamingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 			
 	        }
