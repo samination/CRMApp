@@ -88,7 +88,7 @@ boolean	b1=proxy2.authentifier(log_mail_field.getText(), password_mail_field.get
 
     
 	
-     	if (b==true)
+     if (b==true)
 	{
 		{Alert a=new Alert(Alert.AlertType.ERROR);
         a.setContentText("Success!");
@@ -150,11 +150,11 @@ boolean	b1=proxy2.authentifier(log_mail_field.getText(), password_mail_field.get
 	
 	}
 	
-     else if(b1==true){
+      if(b1==true){
 		
 		
 		
-		
+		MenuAdminController.mail=log_mail_field.getText();
 		Stage primaryStage=new Stage();
 		Parent root=FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
         Scene scene = new Scene(root);
@@ -163,7 +163,7 @@ boolean	b1=proxy2.authentifier(log_mail_field.getText(), password_mail_field.get
         primaryStage.setScene(scene);
         primaryStage.show();
 		
-		
+		System.out.println("t3adda");
 		
 	}
 	

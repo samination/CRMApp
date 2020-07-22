@@ -55,42 +55,65 @@ public class MenuAdminController implements Initializable 	 {
 	@FXML
 	private Button actualiser_client;
 	List<Admin> liste_commentaire;
+	static  String mail;
 	
 
 	  
 	    public void initialize(URL url, ResourceBundle rb) {
 	    	
+	    	
+	    	
         
-	    	/*ObservableList<Client> data=FXCollections.observableArrayList();
+	    	ObservableList<Client> data=FXCollections.observableArrayList();
 		
-			 String jndiName="CRmapp-ear/CRmapp-ejb/userService!tn.esprit.CRmapp.services.userServiceRemote";
+			 
 	 	    	
-				Context context = new InitialContext();
-			 
-			 adminServiceRemote proxy;
-			 proxy = (adminServiceRemote) context.lookup(jndiName);
-			 
-			     
-			        List<Client> listeCompagnie=proxy.findAllUsers();
-			       
-			       for(int i=0;i<listeCompagnie.size();i++){
-                    Client c =listeCompagnie.get(i);           
-			       data.add(c);
-			       }
-
-			        c1.setCellValueFactory(
+				
+					String jndiName="CRmapp-ear/CRmapp-ejb/userService!tn.esprit.CRmapp.services.userServiceRemote";
+					Context context;
+					
+					 
+					 userServiceRemote proxy1;
+					try {
+						context = new InitialContext();
+						proxy1 = (userServiceRemote) context.lookup(jndiName);
+						List<Client> listeCompagnie=proxy1.findAllUsers();
+						 for(int i=0;i<listeCompagnie.size();i++){
+			                    Client c =listeCompagnie.get(i);           
+						       data.add(c);
+						       
+						       }
+						
+					} catch (NamingException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+					c1.setCellValueFactory(
 			                new PropertyValueFactory<>("idUser"));
 			       c2.setCellValueFactory(
-			                new PropertyValueFactory<>("adress"));
-			       c3.setCellValueFactory(
 			                new PropertyValueFactory<>("email"));
+			       c3.setCellValueFactory(
+			                new PropertyValueFactory<>("address"));
 			       c4.setCellValueFactory(
 			                new PropertyValueFactory<>("password"));
 			       c5.setCellValueFactory(
 			                new PropertyValueFactory<>("phoneNumber"));
 			       c6.setCellValueFactory(
 			                new PropertyValueFactory<>("fidelity_pt"));
-			        */
+			                
+			                 table1.setItems(data);
+					 
+				       
+				      
+
+				       
+				
+				 
+			
+			     
+			       
+			        
 	    	
 	    	modifier_client.setOnAction(new EventHandler<ActionEvent>() {
 	            
@@ -106,6 +129,7 @@ public class MenuAdminController implements Initializable 	 {
 	        Parent root;
 			try {
 				root = loader.load();
+				
 				ClientUpdateController hc = loader.getController();
 		        hc.setClient(a);
 		       
@@ -114,6 +138,8 @@ public class MenuAdminController implements Initializable 	 {
 		        Scene scene=new Scene(root);
 		        stage.setScene(scene);
 		        stage.showAndWait();
+		        
+		        
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -146,25 +172,27 @@ public class MenuAdminController implements Initializable 	 {
 		                if (table1.getSelectionModel().getSelectedItem() != null) {
 		            
 		                int id = table1.getSelectionModel().getSelectedItem().getIdUser();
-		                String jndiName="CRmapp-ear/CRmapp-ejb/adminService!tn.esprit.CRmapp.services.adminServiceRemote";
+		                String jndiName="CRmapp-ear/CRmapp-ejb/userService!tn.esprit.CRmapp.services.userServiceRemote";
 		                Context context;
 		                try {
 							context = new InitialContext();
-							 adminServiceRemote proxy = (adminServiceRemote) context.lookup(jndiName);
+							 userServiceRemote proxy = (userServiceRemote) context.lookup(jndiName);
 							 proxy.removeUser(id);
 						} catch (NamingException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						 adminServiceRemote proxy;
+						
 						
 		           
 		            /*rafrechir();*/
-		        } else {
+		        
+		                
+		                } else {
 		            Alert alert = new Alert(Alert.AlertType.ERROR);
 		            alert.setTitle("information Dialog");
 		            alert.setHeaderText(null);
-		            alert.setContentText("Vous devez selectionner un voyage organise");
+		            alert.setContentText("Vous devez selectionner un admin!");
 		            alert.show();
 		        }
 		            }
@@ -173,40 +201,122 @@ public class MenuAdminController implements Initializable 	 {
 			   
 			   
 			   actualiser_client.setOnAction((ActionEvent event)  ->  { 
-				   ObservableList<Client> data=FXCollections.observableArrayList();
+				   ObservableList<Client> data2=FXCollections.observableArrayList();
 					
-					 String jndiName="CRmapp-ear/CRmapp-ejb/adminService!tn.esprit.CRmapp.services.adminServiceRemote";
+					 String jndiName2="CRmapp-ear/CRmapp-ejb/adminService!tn.esprit.CRmapp.services.adminServiceRemote";
+				
+						Context context1;
 			 	    	
-						Context context;
+					
 						try {
-							context = new InitialContext();
-							 adminServiceRemote proxy;
-							 proxy = (adminServiceRemote) context.lookup(jndiName);
+							context1 = new InitialContext();
+							 adminServiceRemote proxy2;
+							 proxy2 = (adminServiceRemote) context1.lookup(jndiName2);
+							 String num=proxy2.IdentifierOperator(mail);
+								
+								
+								String n=num.substring(0,1);
+								String nt="9";
+								String nore="2";
+								String nora="5";
+								
+							 
+							if(n.equals(nt))
+							
+								{
+							
+							
+							
 							 
 							     
-							        List<Client> listeCompagnie1=proxy.findAllUsers();
+							        List<Client> listeCompagnie1=proxy2.findAllUsers1();
 							       
 							       for(int i=0;i<listeCompagnie1.size();i++){
 							           Client c =listeCompagnie1.get(i);           
-							       data.add(c);
+							       data2.add(c);
+							      
 							       }
 
 							        c1.setCellValueFactory(
 							                new PropertyValueFactory<>("idUser"));
 							       c2.setCellValueFactory(
-							                new PropertyValueFactory<>("adress"));
-							       c3.setCellValueFactory(
 							                new PropertyValueFactory<>("email"));
+							       c3.setCellValueFactory(
+							                new PropertyValueFactory<>("address"));
 							       c4.setCellValueFactory(
-							                new PropertyValueFactory<>("password"));
+							                new PropertyValueFactory<>("adress1"));
 							       c5.setCellValueFactory(
 							                new PropertyValueFactory<>("phoneNumber"));
 							       c6.setCellValueFactory(
 							                new PropertyValueFactory<>("fidelity_pt"));
 							        
 							      
-							   table1.setItems(data);
-							   
+							   table1.setItems(data2);
+								}
+							if(n.equals(nore))
+								
+							{
+						
+						
+						
+						     
+						        List<Client> listeCompagnie1=proxy2.findAllUsers2();
+						       
+						       for(int i=0;i<listeCompagnie1.size();i++){
+						           Client c =listeCompagnie1.get(i);           
+						       data2.add(c);
+						      
+						       }
+
+						        c1.setCellValueFactory(
+						                new PropertyValueFactory<>("idUser"));
+						       c2.setCellValueFactory(
+						                new PropertyValueFactory<>("email"));
+						       c3.setCellValueFactory(
+						                new PropertyValueFactory<>("address"));
+						       c4.setCellValueFactory(
+						                new PropertyValueFactory<>("adress1"));
+						       c5.setCellValueFactory(
+						                new PropertyValueFactory<>("phoneNumber"));
+						       c6.setCellValueFactory(
+						                new PropertyValueFactory<>("fidelity_pt"));
+						        
+						      
+						   table1.setItems(data2);
+							}
+							
+if(n.equals(nora))
+								
+							{
+						
+						
+						
+						 
+						     
+						        List<Client> listeCompagnie1=proxy2.findAllUsers3();
+						       
+						       for(int i=0;i<listeCompagnie1.size();i++){
+						           Client c =listeCompagnie1.get(i);           
+						       data2.add(c);
+						      
+						       }
+
+						        c1.setCellValueFactory(
+						                new PropertyValueFactory<>("idUser"));
+						       c2.setCellValueFactory(
+						                new PropertyValueFactory<>("email"));
+						       c3.setCellValueFactory(
+						                new PropertyValueFactory<>("address"));
+						       c4.setCellValueFactory(
+						                new PropertyValueFactory<>("adress1"));
+						       c5.setCellValueFactory(
+						                new PropertyValueFactory<>("phoneNumber"));
+						       c6.setCellValueFactory(
+						                new PropertyValueFactory<>("fidelity_pt"));
+						        
+						      
+						   table1.setItems(data2);
+							}
 						} catch (NamingException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

@@ -48,6 +48,8 @@ public void initialize(URL url, ResourceBundle rb) throws  NamingException {
 					proxy = (userServiceRemote) context.lookup(jndiName);
 					Client  p =new Client(sign_mail.getText(),pass_sing.getText(),sign_adress.getText(),sign_number.getText());
 					 proxy.addUser(p);
+					 SendingMail sm=new SendingMail("succes", sign_mail.getText(), "Succees de creation");
+						sm.envoyer();
 					 
 				} catch (NamingException e) {
 					// TODO Auto-generated catch block

@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import tn.esprit.CRmapp.entities.Client;
 import tn.esprit.CRmapp.services.userServiceRemote;
 
+
 public class ClientUpdateController implements Initializable {
 	@FXML
 	private TextField entry1;
@@ -46,12 +47,12 @@ public class ClientUpdateController implements Initializable {
 	      he=h;          
 	                
 	    
-	      this.entry1.setText(String.valueOf(he.getIdUser()));
 	      
-	      this.entry11.setText(he.getEmail());
-	      this.entry12.setText(he.getPassword());
+	      this.entry1.setText(String.valueOf(he.getIdUser()));
+	      this.entry14.setText(he.getEmail());
+	      
 	      this.entry13.setText(he.getAddress());
-	      this.entry14.setText(String.valueOf(he.getFidelity_pt()));
+	      this.entry12.setText(String.valueOf(he.getFidelity_pt()));
 	      this.entry15.setText(he.getPhoneNumber());
 	      
 	}
@@ -66,24 +67,25 @@ public class ClientUpdateController implements Initializable {
            public void handle(ActionEvent event) {
              
        Client h=new Client();
+     h.setIdUser(Integer.parseInt(entry1.getText()));
        
-
-       h.setAddress(entry12.getText());
-       h.setEmail(entry13.getText());
-       h.setPhoneNumber(entry14.getText());
-       h.setFidelity_pt(Integer.parseInt(entry15.getText()));
+       h.setEmail(entry14.getText());
+       h.setAddress(entry13.getText());
+      
+       h.setPhoneNumber(entry15.getText());
+       h.setFidelity_pt(Integer.parseInt(entry12.getText()));
       
        
        
       
-          if  (entry1.getText().length() != 0&&entry11.getText().length() != 0&&entry12.getText().length() != 0&&entry13.getText().length() != 0&&entry14.getText().length() != 0&&entry15.getText().length() != 0) {
+          if  (entry12.getText().length() != 0&&entry13.getText().length() != 0&&entry14.getText().length() != 0&&entry15.getText().length() != 0) {
         	  String jndiName="CRmapp-ear/CRmapp-ejb/userService!tn.esprit.CRmapp.services.userServiceRemote";
       		Context context;
       		try {
 				context = new InitialContext();
 				userServiceRemote proxy;
 				proxy = (userServiceRemote) context.lookup(jndiName);
-				proxy.updateUser(h, Integer.parseInt(entry1.getText()));
+				proxy.updateUser(h);
 			} catch (NamingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
