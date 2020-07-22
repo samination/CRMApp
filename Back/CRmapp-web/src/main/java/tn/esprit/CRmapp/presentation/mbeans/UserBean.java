@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+
 import tn.esprit.CRmapp.entities.Client;
 import tn.esprit.CRmapp.services.adminService;
 import tn.esprit.CRmapp.services.userService;
@@ -88,8 +89,9 @@ public UserBean(String email, String password, String address, String phoneNumbe
 		this.fidelity_pt = fidelity_pt;
 	}
 
-public UserBean(String email, String password, String address, String phoneNumber) {
+public UserBean(int id, String email, String password, String address, String phoneNumber) {
 		super();
+		this.id=id;
 		this.email = email;
 		this.password = password;
 		this.address = address;
@@ -102,6 +104,9 @@ public UserBean() {
 public String ajouterUser(){
 	userService.addUser(new Client(email,password,address,phoneNumber));
 String url="ClientList?faces-redirect=true";
+
+
+
 	
 	return url;
 	}
@@ -115,16 +120,17 @@ public void supprimerClient(int ide){
 	
 }
 public void miseajour_client(){
-	userService.updateUser(new Client(email,password,address,phoneNumber,fidelity_pt));
+	userService.updateUser(new Client(id,email,password,address,phoneNumber));
 }
 
 public void modifier_client(Client clt){
+	this.setId(clt.getIdUser());
 	this.setEmail(clt.getEmail());
 	this.setPassword(clt.getPassword());
 	this.setAddress(clt.getAddress());
 	this.setPhoneNumber(clt.getPhoneNumber());
 	this.setFidelity_pt(clt.getFidelity_pt());
-	this.setId(clt.getIdUser());
+	
 	
 	
 	
