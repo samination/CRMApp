@@ -140,7 +140,7 @@ public class MenuRootController implements Initializable 	 {
 	            Alert alert = new Alert(Alert.AlertType.ERROR);
 	            alert.setTitle("information Dialog");
 	            alert.setHeaderText(null);
-	            alert.setContentText("Vous devez selectionner un voyage organise!!");
+	            alert.setContentText("Vous devez selectionner un client!!");
 	            alert.show();
 	        }
 	    }
@@ -179,7 +179,7 @@ public class MenuRootController implements Initializable 	 {
 		            Alert alert = new Alert(Alert.AlertType.ERROR);
 		            alert.setTitle("information Dialog");
 		            alert.setHeaderText(null);
-		            alert.setContentText("Vous devez selectionner un voyage organise");
+		            alert.setContentText("Vous devez selectionner un Client!");
 		            alert.show();
 		        }
 		            }
