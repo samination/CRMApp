@@ -6,31 +6,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="1079.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.interfaces.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="1118.0" style="-fx-background-image: url('file:C:/Users/samination/Documents/fk.jpg');" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.interfaces.LoginController">
    <children>
-      <Label layoutX="357.0" layoutY="60.0" prefHeight="50.0" prefWidth="294.0" text="Welcome to Crm App">
+      <Label layoutX="357.0" layoutY="60.0" prefHeight="50.0" prefWidth="294.0" text="Welcome to Crm App" textFill="#c90707">
          <font>
             <Font name="Calibri Bold Italic" size="29.0" />
          </font>
       </Label>
-      <TextField fx:id="log_mail_field" layoutX="403.0" layoutY="162.0" prefHeight="35.0" prefWidth="160.0" />
-      <TextField fx:id="password_mail_field" layoutX="403.0" layoutY="240.0" prefHeight="35.0" prefWidth="160.0" />
-      <Label layoutX="157.0" layoutY="161.0" prefHeight="35.0" prefWidth="120.0" text="e-mail">
+      <TextField fx:id="log_mail_field" layoutX="403.0" layoutY="162.0" prefHeight="35.0" prefWidth="176.0" />
+      <TextField fx:id="password_mail_field" layoutX="403.0" layoutY="240.0" prefHeight="35.0" prefWidth="176.0" />
+      <Label layoutX="157.0" layoutY="161.0" prefHeight="35.0" prefWidth="120.0" text="e-mail" textFill="#dd0000">
          <font>
             <Font size="34.0" />
          </font>
       </Label>
-      <Label layoutX="157.0" layoutY="230.0" prefHeight="40.0" prefWidth="176.0" text="Password">
+      <Label layoutX="157.0" layoutY="230.0" prefHeight="40.0" prefWidth="176.0" text="Password" textFill="RED">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Button fx:id="button_connextion" layoutX="399.0" layoutY="359.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="203.0" text="Login">
+      <Button fx:id="button_connextion" layoutX="399.0" layoutY="359.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="203.0" style="-fx-border-radius: 30; -fx-border-color: #fff; -fx-background-color: transparent;" text="Login" textFill="WHITE">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Button fx:id="button_connextion1" layoutX="682.0" layoutY="444.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="203.0" text="Signup">
+      <Button fx:id="button_connextion1" layoutX="840.0" layoutY="517.0" mnemonicParsing="false" opacity="0.41" prefHeight="65.0" prefWidth="203.0" style="-fx-border-radius: 30; -fx-border-color: #fff; -fx-background-radius: transparent;" text="Signup" textFill="#432222">
          <font>
             <Font size="30.0" />
          </font>
