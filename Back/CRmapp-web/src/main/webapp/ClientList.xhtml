@@ -9,9 +9,13 @@
 	   xmlns:p="http://primefaces.org/ui">
 	   
 	   <h:head>
+	   <style>               
+        .Bimage{background-image:url("#{request.contextPath}tt.jpeg"); }        
+        </style>   
+	   
 	<title>List</title>
 </h:head>
-<body style="background-image: url(C:\Users\samination\Desktop\tt.jpeg)" id="sen">
+<h:body  id="sen" background-img="tt.jpeg">
 <p:panel id="pan1" header="User">
 <h:form id="form">
 <p:dataTable  value="#{userBean.clientList}" var="client" border="1" >
@@ -95,6 +99,6 @@
 
 
 </p:panel>
-</body>
+</h:body>
 
 </html>
