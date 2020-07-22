@@ -41,6 +41,11 @@ public class Client extends User implements Serializable{
 		super(email, password, address, phoneNumber);
 		// TODO Auto-generated constructor stub
 	}
+	 public Client(int idUser,String email, String password, String address, String phoneNumber) {
+			super(idUser,email, password, address, phoneNumber);
+			// TODO Auto-generated constructor stub
+		}
+	 
 
 	@Override
 	    public String toString(){

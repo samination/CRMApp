@@ -115,7 +115,7 @@ public void supprimerClient(int ide){
 	
 }
 public void miseajour_client(){
-	userService.updateUser(new Client(email,password,address,phoneNumber,fidelity_pt),id);
+	userService.updateUser(new Client(email,password,address,phoneNumber,fidelity_pt));
 }
 
 public void modifier_client(Client clt){

@@ -30,7 +30,7 @@ public class SendingMail {
         public static String destination ;
         public static String subject ;
     public SendingMail(String contenu,String destination , String subject) {
-        mailUsername = "mailmte3d";
+        mailUsername = "mailmte3di";
         mailPassword = "mdp";
         this.contenu=contenu ;
         this.destination=destination ;
