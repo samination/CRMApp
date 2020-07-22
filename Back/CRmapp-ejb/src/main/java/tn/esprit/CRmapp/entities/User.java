@@ -156,6 +156,14 @@ public class User implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 	
+     public User(int idUser,String email, String password, String address, String phoneNumber) {
+ 		super();
+ 		this.idUser=idUser;
+ 		this.email = email;
+ 		this.password = password;
+ 		this.address = address;
+ 		this.phoneNumber = phoneNumber;
+ 	}
 	
         
 	  

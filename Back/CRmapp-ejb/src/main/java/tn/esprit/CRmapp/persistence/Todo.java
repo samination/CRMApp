@@ -6,7 +6,7 @@ import java.lang.String;
 import javax.persistence.*;
 
 @Entity
-@Table(name="t_todo")
+@Table(name="t_todoooo")
 public class Todo implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -22,7 +22,7 @@ import tn.esprit.CRmapp.entities.User;
 
 
 /**
- * Session Bean implementation class userService
+ * Session Bean implementation class userServicedd
  */
 @Stateless
 @LocalBean
@@ -63,6 +63,7 @@ public class adminService implements adminServiceRemote, userServiceLocal {
 		
 		f.setPhoneNumber(userNewValues.getPhoneNumber());
 		f.setCin(userNewValues.getCin());
+		em.merge(f);
 	}
 
 	@Override

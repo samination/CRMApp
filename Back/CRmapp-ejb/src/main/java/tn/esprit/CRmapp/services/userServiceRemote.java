@@ -14,7 +14,7 @@ import tn.esprit.CRmapp.entities.User;
 public interface userServiceRemote {
 	public void  addUser(Client f);
 	public void removeUser(int id);
-	public void updateUser(Client userNewValues, int id);
+	public void updateUser(Client userNewValues);
 	public Client findUserById(int id);
 	public List<Client> findAllUsers();
 	public boolean authentifier(String login, String password);

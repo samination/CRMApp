@@ -48,14 +48,11 @@ public class userService implements userServiceRemote, userServiceLocal {
 	}
 
 	@Override
-	public void updateUser(Client userNewValues, int id)
+	public void updateUser(Client userNewValues)
 	{
-		Client f = em.find(Client.class, id);
-		f.setAddress(userNewValues.getAddress());
-		f.setEmail(userNewValues.getEmail());
 		
-		f.setPhoneNumber(userNewValues.getPhoneNumber());
-		f.setFidelity_pt(userNewValues.getFidelity_pt());
+		em.merge(userNewValues);
+		
 		
 	}
 
